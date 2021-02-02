@@ -3,6 +3,8 @@ package de.neuefische.productdemo.controller;
 
 import de.neuefische.productdemo.db.ProductDb;
 import de.neuefische.productdemo.model.Product;
+import de.neuefische.productdemo.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -12,20 +14,23 @@ import java.util.List;
 @RequestMapping("products")
 public class ProductController {
 
-    public final ProductDb productList = new ProductDb(new ArrayList<Product>(List.of(
-            new Product("1", "Stuhl"),
-            new Product("2", "Tisch"),
-            new Product("3", "Decke")
-    )));
+    public final ProductService productService;
+
+    @Autowired
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
 
 
     @GetMapping("list")
-    public ArrayList<Product> listProducts (){
-        return productList.listProducts();
+    public List<Product> listProducts() {
+        return productService.listProducts();
     }
 
     @PutMapping
-    public Product addProduct(@RequestBody Product product){
-        return productList.addProduct(product);
+    public Product addProduct(@RequestBody Product product) {
+        return productService.addProduct(product);
     }
+
+
 }
