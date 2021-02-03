@@ -17,7 +17,6 @@ class ProductDbTest {
     @Test
     public void addProductTester(){
         //Given
-        //
         ProductDb productDb = new ProductDb();
 
 

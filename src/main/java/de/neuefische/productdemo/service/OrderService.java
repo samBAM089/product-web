@@ -15,6 +15,7 @@ import java.util.List;
 public class OrderService {
 
     private final OrderDb orderDb;
+    //productDb braucht man nicht > grau
     private final ProductDb productDb;
 
 
@@ -37,4 +38,6 @@ public class OrderService {
     public List<Order> list() {
         return this.orderDb.list();
     }
+
+
 }
