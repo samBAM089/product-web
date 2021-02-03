@@ -14,8 +14,8 @@ import java.util.List;
 @Service
 public class OrderService {
 
-    public OrderDb orderDb;
-    public ProductDb productDb;
+    private final OrderDb orderDb;
+    private final ProductDb productDb;
 
 
     public OrderService(OrderDb orderDb, ProductDb productDb) {

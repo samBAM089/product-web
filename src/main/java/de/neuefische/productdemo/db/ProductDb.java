@@ -12,7 +12,9 @@ public class ProductDb {
     private ArrayList<Product> productlist = new ArrayList<Product>(List.of(
             new Product("1", "Stuhl"),
             new Product("2", "Tisch"),
-            new Product("3", "Decke")
+            new Product("3", "Decke"),
+            new Product("4", "Topf")
+
     ));
 
 

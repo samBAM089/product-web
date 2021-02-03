@@ -14,10 +14,11 @@ import java.util.List;
 @RequestMapping("products")
 public class ProductController {
 
-    public final ProductService productService;
+    private final ProductService productService;
 
     @Autowired
     public ProductController(ProductService productService) {
+
         this.productService = productService;
     }
 

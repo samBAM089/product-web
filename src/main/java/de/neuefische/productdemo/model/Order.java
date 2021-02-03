@@ -1,7 +1,10 @@
 package de.neuefische.productdemo.model;
 
+import lombok.Data;
+
 import java.util.ArrayList;
 
+@Data
 public class Order {
     private String id;
     private ArrayList<String> productIds;
@@ -32,3 +35,4 @@ public class Order {
         this.productIds = productIds;
     }
 }
+
