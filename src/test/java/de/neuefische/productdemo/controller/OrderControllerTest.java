@@ -4,6 +4,7 @@ import de.neuefische.productdemo.db.OrderDb;
 
 import de.neuefische.productdemo.model.Order;
 import org.hamcrest.Matchers;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,9 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.arrayContaining;
 import static org.hamcrest.Matchers.emptyArray;
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class OrderControllerTest {
@@ -31,6 +30,11 @@ class OrderControllerTest {
 
     @Autowired
     private OrderDb orderDb;
+
+    @AfterEach
+    public void clearDatabase() {
+        orderDb.clear();
+    }
 
     @Test
     public void getOrderListTest() {
@@ -61,5 +65,4 @@ class OrderControllerTest {
         assertThat(response.getStatusCode(), Matchers.is(HttpStatus.OK));
         assertThat(response.getBody(), Matchers.is(expected));
     }
-
 }
