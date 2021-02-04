@@ -20,6 +20,7 @@ import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.emptyArray;
 
+//Integration Test
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class OrderControllerTest {
 
@@ -39,10 +40,10 @@ class OrderControllerTest {
 
     @Test
     public void getOrderListTest() {
-        //Given
+        //Given URL wird definiert, Port wird random generiert
         String url = "http://localhost:" + port + "/orders";
 
-        //When
+        //When Rückgabe: ein Objekt der Klasse Order[] über die definierte URL
         ResponseEntity<Order[]> response = restTemplate.getForEntity(url, Order[].class);
 
         //Then
@@ -53,6 +54,7 @@ class OrderControllerTest {
     public  void addOrderPostTest() {
         //Given
         String url = "http://localhost:" + port + "/orders/add";
+
         Order orderToSend = new Order("firstOrder",
                 new ArrayList<>(List.of("Decke", "Dach", "Boden", "Fenster")));
 
