@@ -22,7 +22,7 @@ public class OrderController {
         this.orderService = orderService;
     }
 
-    @PutMapping("add")
+    @PostMapping("add")
     public Order addOrder(@RequestBody Order order) {
         return this.orderService.add(order);
     }

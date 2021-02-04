@@ -24,4 +24,7 @@ public class OrderDb {
         return this.orderList;
     }
 
+    public  void clear() {
+        orderList.clear();
+    }
 }
